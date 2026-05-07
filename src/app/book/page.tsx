@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import PawIcon from '@/components/PawIcon'
 
+type SubmitState = 'idle' | 'loading' | 'success' | 'error'
+
 const services = [
   { id: 'fade',       name: 'The Fade',       price: '$35', time: '45 min' },
   { id: 'aura',       name: 'Aura Cut',   price: '$45', time: '60 min' },
@@ -12,9 +14,9 @@ const services = [
 const times = ['9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM']
 
 export default function BookPage() {
-  const [selected, setSelected]   = useState('')
-  const [timeSlot, setTimeSlot]   = useState('')
-  const [submitted, setSubmitted] = useState(false)
+  const [selected, setSelected] = useState('')
+  const [timeSlot, setTimeSlot] = useState('')
+  const [submitState, setSubmitState] = useState<SubmitState>('idle')
   const [form, setForm] = useState({ name:'', phone:'', ig:'', notes:'' })
 
   const inputStyle = {
@@ -23,7 +25,32 @@ export default function BookPage() {
     padding:'14px 16px', outline:'none', transition:'border-color 0.2s',
   }
 
-  if (submitted) return (
+  async function handleSubmit() {
+    if (!selected || !timeSlot || !form.name || !form.phone) return
+    const svc = services.find(s => s.id === selected)!
+    setSubmitState('loading')
+    try {
+      const res = await fetch('/api/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          ig: form.ig,
+          notes: form.notes,
+          service: svc.name,
+          price: svc.price,
+          duration: svc.time,
+          timeSlot,
+        }),
+      })
+      setSubmitState(res.ok ? 'success' : 'error')
+    } catch {
+      setSubmitState('error')
+    }
+  }
+
+  if (submitState === 'success') return (
     <div style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', gap:32, padding:40, textAlign:'center' }}>
       <div style={{ animation:'pulse-glow 3s infinite' }}>
         <PawIcon size={120} />
@@ -33,6 +60,22 @@ export default function BookPage() {
       <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:18, color:'rgba(245,240,232,0.6)', maxWidth:480, lineHeight:1.6 }}>
         Len Dogg will reach out to confirm your slot. See you soon.
       </p>
+      <div style={{ fontFamily:'Space Mono,monospace', fontSize:11, letterSpacing:3, color:'rgba(212,168,50,0.5)' }}>
+        @lendogg.cuts ✂️
+      </div>
+    </div>
+  )
+
+  if (submitState === 'error') return (
+    <div style={{ minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column', gap:32, padding:40, textAlign:'center' }}>
+      <div style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:48, letterSpacing:6, color:'#e5311d', lineHeight:1 }}>SOMETHING WENT WRONG</div>
+      <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:18, color:'rgba(245,240,232,0.6)', maxWidth:480, lineHeight:1.6 }}>
+        Your booking didn&apos;t go through. Please try again or contact us directly on Instagram.
+      </p>
+      <button onClick={() => setSubmitState('idle')} style={{
+        fontFamily:'Bebas Neue,sans-serif', fontSize:18, letterSpacing:4,
+        background:'#d4a832', color:'#080808', border:'none', padding:'14px 32px', cursor:'pointer',
+      }}>Try Again</button>
       <div style={{ fontFamily:'Space Mono,monospace', fontSize:11, letterSpacing:3, color:'rgba(212,168,50,0.5)' }}>
         @lendogg.cuts ✂️
       </div>
@@ -158,18 +201,19 @@ export default function BookPage() {
         )}
 
         <button
-          onClick={() => { if(selected && timeSlot && form.name && form.phone) setSubmitted(true) }}
+          onClick={handleSubmit}
+          disabled={!selected || !timeSlot || !form.name || !form.phone || submitState === 'loading'}
           style={{
             width:'100%', background: selected && timeSlot && form.name && form.phone ? '#d4a832' : '#333',
             color: selected && timeSlot && form.name && form.phone ? '#080808' : '#666',
             border:'none', padding:'20px', cursor: selected && timeSlot && form.name && form.phone ? 'pointer' : 'not-allowed',
             fontFamily:'Bebas Neue,sans-serif', fontSize:24, letterSpacing:6,
-            transition:'all 0.2s',
+            transition:'all 0.2s', opacity: submitState === 'loading' ? 0.7 : 1,
           }}
           onMouseEnter={e => { if(selected && timeSlot && form.name && form.phone) e.currentTarget.style.background='#c8f542' }}
           onMouseLeave={e => { if(selected && timeSlot && form.name && form.phone) e.currentTarget.style.background='#d4a832' }}
         >
-          LOCK IN THE SLOT →
+          {submitState === 'loading' ? 'SENDING...' : 'LOCK IN THE SLOT →'}
         </button>
 
         <p style={{ fontFamily:'Space Mono,monospace', fontSize:9, letterSpacing:2, color:'rgba(245,240,232,0.25)', textAlign:'center', marginTop:16, lineHeight:1.6 }}>
