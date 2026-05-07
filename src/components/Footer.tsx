@@ -15,7 +15,7 @@ export default function Footer() {
         <div style={{ display:'flex', animation:'marquee 18s linear infinite', width:'max-content' }}>
           {[...Array(6)].map((_, i) => (
             <span key={i} style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:20, letterSpacing:8, color:'rgba(212,168,50,0.3)', marginRight:40, whiteSpace:'nowrap' }}>
-              NO CAP CUTS ✂ HIT DIFFERENT ✂ STAY DRIPPED ✂ BUSSIN FADES ✂
+              FRESH CUTS ✂ SHARP FADES ✂ CLEAN LINES ✂ EXPERT STYLING ✂
             </span>
           ))}
         </div>
@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
           </div>
           <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:14, color:'rgba(245,240,232,0.5)', lineHeight:1.6 }}>
-            Fresh fades & fad cuts.<br />Hit different, stay dripped.
+            Fresh fades & stylish cuts.<br />Precision styling, every time.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function Footer() {
             <span style={{ color:'#c8f542' }}>@</span>lendogg<span style={{ color:'#d4a832' }}>.cuts</span>
           </div>
           <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, color:'rgba(245,240,232,0.4)', lineHeight:1.8 }}>
-            Slide in the DMs to book<br />No cap, just clips 🐾✂️
+            Message us to book<br />Just great cuts 🐾✂️
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default function Footer() {
           © 2025 LEN DOGG HAIR STUDIO. ALL RIGHTS RESERVED.
         </div>
         <div style={{ fontFamily:'Space Mono,monospace', fontSize:9, letterSpacing:2, color:'rgba(212,168,50,0.3)' }}>
-          BUILT DIFFERENT 🔥
+          BUILT WITH PASSION 🔥
         </div>
       </div>
     </footer>

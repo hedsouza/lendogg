@@ -60,7 +60,7 @@ export default function Navbar() {
         }}
         onMouseEnter={e => (e.currentTarget.style.background='#c8f542')}
         onMouseLeave={e => (e.currentTarget.style.background='#d4a832')}
-        >Slide In DMs →</Link>
+        >Book Now →</Link>
       </div>
 
       {/* Mobile hamburger */}

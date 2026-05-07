@@ -3,30 +3,30 @@
 import Link from 'next/link'
 
 const cuts = [
-  { id:1,  title:'The Signature Fade',  tag:'BUSSIN',    desc:'Skin fade to perfection. Zero impurities.',        color:'#d4a832', emoji:'⚡' },
-  { id:2,  title:'Mullet Era',          tag:'VIRAL',     desc:'Bringing the mullet back. Business up front, party in the back.',  color:'#c8f542', emoji:'🔥' },
-  { id:3,  title:'The Taper King',      tag:'ON SIGHT',  desc:'Sharp taper, cleaner than your jokes.',            color:'#d4a832', emoji:'👑' },
-  { id:4,  title:'Burst Fade Rizz',     tag:'GOAT',      desc:'Burst fade with a natural look. Rizz activated.',  color:'#e5311d', emoji:'🐐' },
-  { id:5,  title:'Edgar Gang',          tag:'NO CAP',    desc:'Edgar cut hitting different in 2025.',             color:'#c8f542', emoji:'🎯' },
-  { id:6,  title:'French Crop Drip',    tag:'LOWKEY LIT',desc:'French crop fresh enough to eat.',                 color:'#d4a832', emoji:'🍋' },
-  { id:7,  title:'Drop Fade God',       tag:'MAIN CHARACTER', desc:'Drop fade that says "I woke up like this."',  color:'#c8f542', emoji:'✨' },
-  { id:8,  title:'Mohawk Wave',         tag:'HIP HOP',   desc:'For the ones who don\'t care what you think.',     color:'#e5311d', emoji:'🎤' },
-  { id:9,  title:'Bald Fade Slay',      tag:'SLAY',      desc:'Going bald? Nah. This is art.',                   color:'#d4a832', emoji:'💎' },
+  { id:1,  title:'The Signature Fade',  tag:'SIGNATURE',  desc:'Skin fade to perfection. Zero compromise.',         color:'#d4a832', emoji:'⚡' },
+  { id:2,  title:'Mullet Era',          tag:'TRENDING',   desc:'Bringing the mullet back. Business up front, party in the back.',  color:'#c8f542', emoji:'🔥' },
+  { id:3,  title:'The Taper King',      tag:'SHARP',      desc:'Sharp taper, cleaner than you\'ve ever seen.',      color:'#d4a832', emoji:'👑' },
+  { id:4,  title:'Burst Fade',          tag:'BEST SELLER',desc:'Burst fade with a natural look. Clean and effortless.',color:'#e5311d', emoji:'🐐' },
+  { id:5,  title:'Edgar Cut',           tag:'POPULAR',    desc:'Edgar cut done right. Sharp and clean.',            color:'#c8f542', emoji:'🎯' },
+  { id:6,  title:'French Crop',         tag:'FRESH',      desc:'French crop so clean you\'ll do a double take.',    color:'#d4a832', emoji:'🍋' },
+  { id:7,  title:'Drop Fade',           tag:'FEATURED',   desc:'Drop fade. Clean and effortless, every time.',      color:'#c8f542', emoji:'✨' },
+  { id:8,  title:'Mohawk Wave',         tag:'HIP HOP',    desc:'For the ones who aren\'t afraid to stand out.',     color:'#e5311d', emoji:'🎤' },
+  { id:9,  title:'Bald Fade',           tag:'BOLD',       desc:'Going short? This is elevated.',                   color:'#d4a832', emoji:'💎' },
 ]
 
-const tags = ['ALL', 'BUSSIN', 'VIRAL', 'ON SIGHT', 'GOAT', 'HIP HOP']
+const tags = ['ALL', 'SIGNATURE', 'TRENDING', 'SHARP', 'BEST SELLER', 'HIP HOP']
 
 export default function GalleryPage() {
   return (
     <>
       {/* Hero */}
       <section style={{ paddingTop:120, paddingBottom:60, textAlign:'center', padding:'120px 24px 60px' }}>
-        <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:6, color:'#c8f542', marginBottom:16 }}>THE DRIP</div>
+        <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:6, color:'#c8f542', marginBottom:16 }}>OUR WORK</div>
         <h1 style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:'clamp(56px,10vw,100px)', letterSpacing:8, lineHeight:0.9, marginBottom:16 }}>
           THE<br /><span style={{ color:'#d4a832' }}>GALLERY</span>
         </h1>
         <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:18, color:'rgba(245,240,232,0.5)', letterSpacing:1 }}>
-          Every cut bussin. Every client leaving like a main character.
+          Every cut precise. Every client leaving looking their best.
         </p>
       </section>
 
@@ -129,7 +129,7 @@ export default function GalleryPage() {
           <div style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:24, letterSpacing:4, color:'#d4a832', marginBottom:8 }}>📸 GOT PICS?</div>
           <div style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:15, color:'rgba(245,240,232,0.4)', lineHeight:1.6 }}>
             Tag <span style={{ color:'#c8f542' }}>@lendogg.cuts</span> on IG and your cut could end up here.<br />
-            Drop pics in the DMs — let the timeline see the drip.
+            Drop pics in the DMs — let the world see your cut.
           </div>
         </div>
 
@@ -145,7 +145,7 @@ export default function GalleryPage() {
           }}
           onMouseEnter={e => { e.currentTarget.style.background='#c8f542'; e.currentTarget.style.transform='translateY(-2px)' }}
           onMouseLeave={e => { e.currentTarget.style.background='#d4a832'; e.currentTarget.style.transform='translateY(0)' }}
-          >Book Your Glow-Up →</Link>
+          >Book Your Cut →</Link>
         </div>
       </section>
 

@@ -3,10 +3,10 @@ import { useState } from 'react'
 import PawIcon from '@/components/PawIcon'
 
 const services = [
-  { id: 'fade',    name: 'The Fade',    price: '$35', time: '45 min' },
-  { id: 'fad',     name: 'The Fad Cut', price: '$45', time: '60 min' },
-  { id: 'lineup',  name: 'Line Up',     price: '$20', time: '20 min' },
-  { id: 'fulldrip',name: 'Full Drip',   price: '$65', time: '90 min' },
+  { id: 'fade',       name: 'The Fade',       price: '$35', time: '45 min' },
+  { id: 'aura',       name: 'Aura Cut',   price: '$45', time: '60 min' },
+  { id: 'lineup',     name: 'Line Up',        price: '$20', time: '20 min' },
+  { id: 'fullservice',name: 'Full Service',   price: '$65', time: '90 min' },
 ]
 
 const times = ['9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM']
@@ -28,10 +28,10 @@ export default function BookPage() {
       <div style={{ animation:'pulse-glow 3s infinite' }}>
         <PawIcon size={120} />
       </div>
-      <div style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:64, letterSpacing:6, color:'#d4a832', lineHeight:1 }}>IT&apos;S GIVING!</div>
+      <div style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:64, letterSpacing:6, color:'#d4a832', lineHeight:1 }}>YOU&apos;RE BOOKED!</div>
       <div style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:28, letterSpacing:4, color:'#c8f542' }}>BOOKING REQUEST SENT 🔥</div>
       <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:18, color:'rgba(245,240,232,0.6)', maxWidth:480, lineHeight:1.6 }}>
-        Len Dogg will slide into your DMs to confirm the slot. Stay tuned, your glow-up era is loading...
+        Len Dogg will reach out to confirm your slot. See you soon.
       </p>
       <div style={{ fontFamily:'Space Mono,monospace', fontSize:11, letterSpacing:3, color:'rgba(212,168,50,0.5)' }}>
         @lendogg.cuts ✂️
@@ -43,12 +43,12 @@ export default function BookPage() {
     <>
       {/* Hero */}
       <section style={{ paddingTop:120, paddingBottom:60, textAlign:'center', padding:'120px 24px 60px' }}>
-        <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:6, color:'#c8f542', marginBottom:16 }}>SLIDE IN</div>
+        <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:6, color:'#c8f542', marginBottom:16 }}>BOOK NOW</div>
         <h1 style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:'clamp(56px,10vw,100px)', letterSpacing:8, lineHeight:0.9, marginBottom:16 }}>
           BOOK<br /><span style={{ color:'#d4a832' }}>YOUR CUT</span>
         </h1>
         <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:18, color:'rgba(245,240,232,0.5)', letterSpacing:1 }}>
-          Slots go fast. Don&apos;t sleep or you&apos;ll be lackin&apos;.
+          Slots fill up fast. Reserve yours today.
         </p>
       </section>
 
@@ -60,7 +60,7 @@ export default function BookPage() {
 
         {/* Step 1 — Choose service */}
         <div style={{ marginBottom:48 }}>
-          <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:5, color:'#c8f542', marginBottom:24 }}>01 — PICK YOUR VIBE</div>
+          <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:5, color:'#c8f542', marginBottom:24 }}>01 — CHOOSE YOUR SERVICE</div>
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(150px,1fr))', gap:8 }}>
             {services.map(s => (
               <button key={s.id} onClick={() => setSelected(s.id)} style={{
@@ -93,13 +93,13 @@ export default function BookPage() {
             ))}
           </div>
           <div style={{ fontFamily:'Space Mono,monospace', fontSize:9, letterSpacing:2, color:'rgba(245,240,232,0.3)', marginTop:12 }}>
-            * LENNY WILL CONFIRM YOUR EXACT SLOT VIA DM
+            * LENNY WILL CONFIRM YOUR EXACT SLOT
           </div>
         </div>
 
         {/* Step 3 — Your details */}
         <div style={{ marginBottom:48 }}>
-          <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:5, color:'#c8f542', marginBottom:24 }}>03 — YOUR DEETS</div>
+          <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:5, color:'#c8f542', marginBottom:24 }}>03 — YOUR DETAILS</div>
           <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
             <input
               placeholder="Your Name *"
@@ -118,7 +118,7 @@ export default function BookPage() {
               onBlur={e => e.target.style.borderColor='rgba(212,168,50,0.2)'}
             />
             <input
-              placeholder="Instagram Handle (so Lenny can slide in 🐾)"
+              placeholder="Instagram Handle (optional)"
               value={form.ig}
               onChange={e => setForm({...form, ig:e.target.value})}
               style={inputStyle}
@@ -126,7 +126,7 @@ export default function BookPage() {
               onBlur={e => e.target.style.borderColor='rgba(212,168,50,0.2)'}
             />
             <textarea
-              placeholder="Inspo or notes — drop a reference pic idea, describe the vibe..."
+              placeholder="Notes — describe what you're looking for, include any reference ideas..."
               value={form.notes}
               onChange={e => setForm({...form, notes:e.target.value})}
               rows={4}
@@ -173,7 +173,7 @@ export default function BookPage() {
         </button>
 
         <p style={{ fontFamily:'Space Mono,monospace', fontSize:9, letterSpacing:2, color:'rgba(245,240,232,0.25)', textAlign:'center', marginTop:16, lineHeight:1.6 }}>
-          BY BOOKING YOU AGREE TO BE ABSOLUTELY DRIPPED OUT. NO REFUNDS ON BUSSIN CUTS.
+          BY BOOKING YOU AGREE TO OUR TERMS. NO REFUNDS AFTER THE CUT.
         </p>
       </section>
     </>

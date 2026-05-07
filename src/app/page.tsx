@@ -5,13 +5,13 @@ import PawIcon from '@/components/PawIcon'
 
 export default function Home() {
   const services = [
-    { name: 'The Fade', price: '$35', desc: 'Clean skin fade that goes hard. Every time. No cap.', tag: 'BUSSIN' },
-    { name: 'The Fad Cut', price: '$45', desc: 'Whatever\'s trending — Lenny\'s already done it. Main character energy.', tag: 'VIRAL' },
-    { name: 'Line Up', price: '$20', desc: 'Edges so sharp they\'ll think you photoshopped your hairline.', tag: 'ON SIGHT' },
-    { name: 'Full Drip', price: '$65', desc: 'Full cut + line up + style. Walk out looking like a whole music video.', tag: 'GOAT' },
+    { name: 'The Fade', price: '$35', desc: 'A clean skin fade, precision every time. Guaranteed.', tag: 'SIGNATURE' },
+    { name: 'Aura Cut', price: '$45', desc: 'Whatever\'s trending — Lenny\'s already mastered it.', tag: 'TRENDING' },
+    { name: 'Line Up', price: '$20', desc: 'Edges so sharp they\'ll think you had them surgically done.', tag: 'SHARP' },
+    { name: 'Full Service', price: '$65', desc: 'Full cut + line up + style. Walk out looking your absolute best.', tag: 'BEST VALUE' },
   ]
 
-  const vibes = ['BOLD', 'FRESH', 'NO CAP', 'BUSSIN', 'ON SIGHT', 'HIP HOP', 'LOWKEY GOAT', 'DRIPPED']
+  const marqueeWords = ['BOLD', 'FRESH', 'SHARP', 'CLEAN', 'PRECISE', 'HIP HOP', 'CLASSIC', 'STYLED']
 
   return (
     <>
@@ -49,7 +49,7 @@ export default function Home() {
         </div>
         <p className="animate-fade-up delay-400 font-mono"
           style={{ opacity:0, fontSize:13, letterSpacing:4, color:'rgba(245,240,232,0.45)', marginBottom:48, textTransform:'uppercase' }}>
-          Hit Different. Stay Dripped.
+          Fresh Cuts. Every Time.
         </p>
 
         {/* CTAs */}
@@ -61,7 +61,7 @@ export default function Home() {
           }}
           onMouseEnter={e => { e.currentTarget.style.background='#c8f542'; e.currentTarget.style.transform='translateY(-2px)' }}
           onMouseLeave={e => { e.currentTarget.style.background='#d4a832'; e.currentTarget.style.transform='translateY(0)' }}
-          >Slide In DMs → Book Now</Link>
+          >Book Now →</Link>
 
           <Link href="/gallery" style={{
             fontFamily:'Bebas Neue,sans-serif', fontSize:20, letterSpacing:4,
@@ -70,7 +70,7 @@ export default function Home() {
           }}
           onMouseEnter={e => { e.currentTarget.style.background='rgba(212,168,50,0.1)'; e.currentTarget.style.transform='translateY(-2px)' }}
           onMouseLeave={e => { e.currentTarget.style.background='transparent'; e.currentTarget.style.transform='translateY(0)' }}
-          >See the Drip →</Link>
+          >View Gallery →</Link>
         </div>
 
         {/* Scroll indicator */}
@@ -80,12 +80,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── VIBE MARQUEE ── */}
+      {/* ── MARQUEE ── */}
       <div style={{ background:'#d4a832', padding:'14px 0', overflow:'hidden' }}>
         <div style={{ display:'flex', animation:'marquee 12s linear infinite', width:'max-content' }}>
           {[...Array(4)].map((_, i) => (
             <span key={i} style={{ display:'flex', gap:32, marginRight:32 }}>
-              {vibes.map(v => (
+              {marqueeWords.map(v => (
                 <span key={v} style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:18, letterSpacing:6, color:'#080808', whiteSpace:'nowrap' }}>
                   {v} ✦
                 </span>
@@ -146,12 +146,12 @@ export default function Home() {
               <span style={{ color:'#d4a832' }}>LEN</span><br />DOGG
             </h2>
             <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:17, color:'rgba(245,240,232,0.65)', lineHeight:1.7, marginBottom:16 }}>
-              Lenny is that guy. Fresh out the chair and already hitting different. He's got the sauce, 
-              the skills, and the vibe — and every cut proves it.
+              Lenny is the real deal. Fresh out the chair and already setting the standard.
+              The skill, the eye for detail, the passion — every cut proves it.
             </p>
             <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:17, color:'rgba(245,240,232,0.65)', lineHeight:1.7, marginBottom:32 }}>
-              Rooted in hip hop culture, obsessed with fads, and lowkey the GOAT in the making. 
-              Don't sleep on Len Dogg — the glow-up is real.
+              Rooted in hip hop culture and obsessed with the craft. Len Dogg is building
+              something special — one great cut at a time.
             </p>
             <div style={{ fontFamily:'Space Mono,monospace', fontSize:11, letterSpacing:2, color:'#c8f542' }}>
               @lendogg.cuts ✂️
@@ -165,9 +165,9 @@ export default function Home() {
               </div>
               {/* Floating tags */}
               {[
-                { text:'BUSSIN', top:'-16px', right:'-20px', bg:'#c8f542', color:'#080808' },
-                { text:'NO CAP', bottom:'-16px', left:'-20px', bg:'#d4a832', color:'#080808' },
-                { text:'GOAT', bottom:'20px', right:'-30px', bg:'#e5311d', color:'#fff' },
+                { text:'FRESH', top:'-16px', right:'-20px', bg:'#c8f542', color:'#080808' },
+                { text:'PRECISE', bottom:'-16px', left:'-20px', bg:'#d4a832', color:'#080808' },
+                { text:'THE BEST', bottom:'20px', right:'-30px', bg:'#e5311d', color:'#fff' },
               ].map(tag => (
                 <div key={tag.text} style={{
                   position:'absolute', ...Object.fromEntries(Object.entries(tag).filter(([k]) => ['top','bottom','left','right'].includes(k))),
@@ -185,10 +185,10 @@ export default function Home() {
       <section style={{ padding:'80px 40px', textAlign:'center', background:'#080808' }}>
         <div style={{ fontFamily:'Space Mono,monospace', fontSize:10, letterSpacing:6, color:'#c8f542', marginBottom:16 }}>DON&apos;T WAIT</div>
         <h2 style={{ fontFamily:'Bebas Neue,sans-serif', fontSize:'clamp(40px,7vw,72px)', letterSpacing:6, marginBottom:8 }}>
-          READY FOR YOUR<br /><span style={{ color:'#d4a832' }}>MAIN CHARACTER ERA?</span>
+          READY FOR YOUR<br /><span style={{ color:'#d4a832' }}>BEST LOOK?</span>
         </h2>
         <p style={{ fontFamily:'Barlow Condensed,sans-serif', fontSize:18, color:'rgba(245,240,232,0.5)', marginBottom:40 }}>
-          Slots fill up fast. Slide in before it&apos;s too late.
+          Slots fill up fast. Book before it&apos;s too late.
         </p>
         <Link href="/book" style={{
           fontFamily:'Bebas Neue,sans-serif', fontSize:24, letterSpacing:6,
@@ -197,7 +197,7 @@ export default function Home() {
         }}
         onMouseEnter={e => { e.currentTarget.style.background='#c8f542'; e.currentTarget.style.transform='scale(1.02)' }}
         onMouseLeave={e => { e.currentTarget.style.background='#d4a832'; e.currentTarget.style.transform='scale(1)' }}
-        >Book Now — It&apos;s Giving →</Link>
+        >Book Now →</Link>
       </section>
     </>
   )
